@@ -1,0 +1,71 @@
+@forward "typography";
+@use "../mixins/mixins" as mixins;
+@use "variables" as variables;
+@use "../breakpoints/breakpoints" as bk;
+
+// global
+* {
+  @include mixins.reset();
+  &::before,
+  &::after {
+    @include mixins.reset();
+  }
+}
+
+html {
+  font-family: "Rubik Regular", Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+  min-height: 100vh;
+}
+
+body {
+  background: variables.$secondary;
+  overflow-x: hidden;
+  @include bk.mediaQuery(lg) {
+    font-size: 18px;
+  }
+  @include bk.mediaQuery(xl) {
+    font-size: 20px;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+// util
+input,
+textarea {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: 2px solid #9893d8;
+  color: #f2f2f2;
+  font-size: 1em;
+}
+
+.btn {
+  background: none;
+  border: 2px solid variables.$primary;
+  color: variables.$primary;
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+  display: inline-block;
+  transition: all 0.3s ease-out;
+  font-size: 1em;
+  &:hover {
+    color: #222;
+    background: variables.$primary;
+  }
+}

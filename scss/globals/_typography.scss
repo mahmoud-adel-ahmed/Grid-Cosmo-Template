@@ -1,0 +1,37 @@
+// fonts
+@font-face {
+  font-family: "Rubik Regular";
+  src: url("../assets/fonts/Rubik-Regular.ttf");
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #dddbff;
+  font-weight: normal;
+  text-transform: capitalize;
+  line-height: 1.4em;
+}
+
+p,
+a,
+li {
+  color: #9893d8;
+  line-height: 1.4em;
+  font-size: 1em;
+}
+
+h1,
+h3 {
+  font-size: 1.2em;
+}
+
+h2 {
+  font-size: 1.6em;
+}
+
+h4,
+.leading {
+  font-size: 1.1em;
+}

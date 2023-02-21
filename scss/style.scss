@@ -1,0 +1,242 @@
+@forward "globals/index";
+@use "./globals/variables" as variables;
+@use "./breakpoints/breakpoints" as breakpoint;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0.7rem;
+  @include breakpoint.mediaQuery(md) {
+    max-width: 67rem;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+.site-nav {
+  h1 {
+    margin: 20px;
+    grid-column: 1/4;
+    border-bottom: 3px solid variables.$primary;
+    padding-bottom: 0.7rem;
+    display: inline-block;
+    @include breakpoint.mediaQuery(lg) {
+      grid-column: 1/3;
+    }
+  }
+  ul {
+    display: none;
+    @include breakpoint.mediaQuery(lg) {
+      grid-column: 5/9;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      padding-inline-end: 1rem;
+      li {
+        margin: 0 0.7rem;
+        a {
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+}
+
+#welcome {
+  display: grid;
+  padding: 0 20px 20px 20px;
+  padding-bottom: 2.5rem;
+  @include breakpoint.mediaQuery(lg) {
+    height: calc(100vh - 87px);
+  }
+  .welcome-text {
+    grid-column: 1/6;
+    @include breakpoint.mediaQuery(md) {
+      grid-column: 1/5;
+      align-self: center;
+    }
+    .leading {
+      padding: 1rem 0;
+    }
+    .btn {
+      margin-top: 0.5rem;
+    }
+  }
+  .welcome-img {
+    grid-column: 6/9;
+    @include breakpoint.mediaQuery(md) {
+      grid-column: 5/9;
+      align-self: center;
+    }
+    img {
+      max-width: 200%;
+      @include breakpoint.mediaQuery(md) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+#portfolio {
+  background: url("../assets/square_bg.png") bottom/cover no-repeat;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  text-transform: capitalize;
+  .projects {
+    margin-top: 2rem;
+    .box {
+      grid-column: 1/9;
+      display: flex;
+      margin-block: 1.4rem;
+      gap: 2rem;
+      @include breakpoint.mediaQuery(md) {
+        flex-direction: column;
+        grid-column: span 4;
+        align-items: center;
+        @include breakpoint.mediaQuery(xl) {
+          grid-column: 1/3;
+        }
+      }
+      &:nth-child(2) {
+        @include breakpoint.mediaQuery(xl) {
+          grid-column: 4/6;
+          padding-top: 10rem;
+        }
+      }
+      &:last-child {
+        @include breakpoint.mediaQuery(md) {
+          grid-column: 3/7;
+        }
+        @include breakpoint.mediaQuery(xl) {
+          grid-column: 7/9;
+        }
+      }
+      img {
+        max-width: 40%;
+        @include breakpoint.mediaQuery(md) {
+          max-width: 60%;
+        }
+        @include breakpoint.mediaQuery(xl) {
+          max-width: 100%;
+        }
+      }
+      h4 {
+        align-self: center;
+        color: #9994f7;
+        text-transform: capitalize;
+        span {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+#skills {
+  background: #07083e;
+  padding: 2.5rem 1.2rem;
+  h3 {
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+  ul {
+    grid-column: 1/9;
+    margin: 1rem 0;
+    justify-content: center;
+    @include breakpoint.mediaQuery(md) {
+      padding-inline: 5rem;
+      margin: auto;
+    }
+    @include breakpoint.mediaQuery(lg) {
+      padding-inline: 0rem;
+    }
+    li {
+      grid-column: span 4;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      text-align: center;
+      @include breakpoint.mediaQuery(lg) {
+        grid-column: span 2;
+      }
+      img {
+        height: 5rem;
+        margin: 1rem auto;
+      }
+      h4 {
+        margin: 1rem 0;
+      }
+    }
+  }
+}
+
+#contact {
+  background: #07083e;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  .leading {
+    padding: 0.5rem 0;
+    @include breakpoint.mediaQuery(lg) {
+      padding: 1.2rem 0;
+    }
+  }
+  form {
+    width: 100%;
+    max-width: 80%;
+    margin: 1rem auto;
+    @include breakpoint.mediaQuery(md) {
+      max-width: 25rem;
+    }
+    input,
+    textarea {
+      width: 100%;
+      max-width: 100%;
+      margin: 0.7rem 0;
+    }
+    textarea {
+      height: 12.5rem;
+      resize: none;
+    }
+  }
+}
+
+footer {
+  padding: 1.8rem 1.2rem;
+  background: no-repeat url("../assets/footer_image.png") #14153d top center/40%;
+  @include breakpoint.mediaQuery(md) {
+    padding: 1.7rem 1.2rem;
+    background-size: 20%;
+  }
+  @include breakpoint.mediaQuery(lg) {
+    padding: 2.5rem 1.2rem;
+  }
+  @include breakpoint.mediaQuery(xl) {
+    padding: 5.2rem 0;
+    background-size: 30%;
+  }
+  .copyright {
+    grid-column: 1/3;
+    align-self: center;
+    text-transform: capitalize;
+    font-size: 0.8em;
+    @include breakpoint.mediaQuery(lg) {
+      grid-column: 1/4;
+    }
+  }
+  .social {
+    grid-column: 7/9;
+    display: flex;
+    gap: 0.7rem;
+    justify-self: end;
+    align-self: center;
+    li {
+      a {
+        img {
+          width: 1.2rem;
+          @include breakpoint.mediaQuery(lg) {
+            width: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
